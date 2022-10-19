@@ -25,7 +25,4 @@ public:
 	void set_price(int p);
 	int get_price();
 
-
-
-
 };

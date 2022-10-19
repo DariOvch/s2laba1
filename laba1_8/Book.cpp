@@ -80,7 +80,6 @@ int Book::edit()
 {
 	print();
 
-	
 	int num = 0;
 	while (true)
 	{

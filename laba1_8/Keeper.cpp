@@ -27,8 +27,10 @@ void Keeper::add()
 		item = new Book;
 		break;
 	case manual:
+		item = new Manual;
 		break;
 	case kants:
+		item = new Kants;
 		break;
 
 	}

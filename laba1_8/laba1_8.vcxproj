@@ -142,14 +142,18 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Bookstore.cpp" />
     <ClCompile Include="io.cpp" />
+    <ClCompile Include="Kants.cpp" />
     <ClCompile Include="Keeper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manual.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
     <ClInclude Include="Bookstore.h" />
     <ClInclude Include="io.h" />
+    <ClInclude Include="Kants.h" />
     <ClInclude Include="Keeper.h" />
+    <ClInclude Include="Manual.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

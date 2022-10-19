@@ -1,5 +1,7 @@
 #include "stdio.h"
 #include "Book.h"
+#include "Manual.h"
+#include "Kants.h"
 
 class Keeper
 {
