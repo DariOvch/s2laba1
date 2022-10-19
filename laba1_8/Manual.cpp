@@ -18,6 +18,22 @@ Manual::Manual(){
 	set_grade(-1);
 	set_size(0);
 }
+
+Manual::Manual(FILE* f)
+{
+	printf("Book created\n");
+	set_type(book);
+	char str[200];
+	int val = 0;
+	fgets(str, 200, f); trim(str); set_name(str);
+	fscanf(f, "%d\n", &val); set_grade(val);
+	fgets(str, 200, f); trim(str); set_author(str);
+	fscanf(f, "%d\n", &val); trim(str); set_price(val);
+	fscanf(f, "%d\n", &val); trim(str); set_year(val);
+	fscanf(f, "%d\n", &val); trim(str); set_size(val);
+	fgets(str, 200, f); set_school(str);
+
+}
 Manual::~Manual(){ 
 	printf("Manual deleted\n");
 }
@@ -43,6 +59,18 @@ void Manual::print(){
 	printf("\n");
 
 }
+void Manual::file_print(FILE* f)
+{
+	fprintf(f, "%d\n", get_type());
+	fprintf(f, "%s\n", get_name());
+	fprintf(f, "%d\n", get_grade());
+	fprintf(f, "%s\n", get_author());
+	fprintf(f, "%d\n", get_price());
+	fprintf(f, "%d\n", get_year());
+	fprintf(f, "%d\n", get_size());
+	fprintf(f, "%s\n", get_school());
+}
+
 int Manual::edit() {
 	print();
 

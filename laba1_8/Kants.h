@@ -10,6 +10,7 @@ class Kants : public BookstoreItem
 
 public:
 	Kants();
+	Kants(FILE* f);
 	~Kants();
 
 	void set_color(char s[200]);
@@ -21,6 +22,7 @@ public:
 	char* get_purpose();
 
 	void print() override;
+	void file_print(FILE* f) override;
 	int edit() override;
 
 };

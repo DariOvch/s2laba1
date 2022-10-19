@@ -12,6 +12,8 @@ class Book : public BookstoreItem
 
 public:
 	Book();
+	Book(Book& obj);
+	Book(FILE* f);
 	~Book();
 
 	void set_name(char s[200]);
@@ -27,6 +29,7 @@ public:
 	int get_size();
 
 	void print() override;
+	void file_print(FILE* f) override;
 	int edit() override;
 
 

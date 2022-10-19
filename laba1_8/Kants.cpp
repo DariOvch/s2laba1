@@ -2,7 +2,7 @@
 
 
 Kants::Kants(){ 
-	printf("Manual created\n");
+	printf("Kants created\n");
 
 	set_type(kants);
 
@@ -13,6 +13,21 @@ Kants::Kants(){
 	set_purpose((char*)"unknown");
 
 }
+Kants::Kants(FILE* f) {
+	printf("Kants created\n");
+
+	set_type(kants);
+
+	char str[200];
+	int val = 0;
+	fgets(str, 200, f); trim(str); set_tip(str);
+	fgets(str, 200, f); trim(str); set_color(str);
+	fgets(str, 200, f); trim(str); set_purpose(str);
+	fscanf(f, "%d\n", &val); set_price(val);
+}
+
+
+
 Kants::~Kants(){ 
 
 }
@@ -32,11 +47,19 @@ char* Kants::get_tip() { return tip; }
 char* Kants::get_purpose() { return purpose; }
 
 void Kants::print() { 
-	printf("Stationery\n");
+	printf("Stationary\n");
 	printf("\'%s\' in %s color for %s, price: %d\n", get_tip(), get_color(), get_purpose(), get_price());
 	printf("\n");
 }
 
+void Kants::file_print(FILE* f)
+{
+	fprintf(f, "%d\n", get_type());
+	fprintf(f, "%s\n", get_tip());
+	fprintf(f, "%s\n", get_color());
+	fprintf(f, "%s\n", get_purpose());
+	fprintf(f, "%d\n", get_price());
+}
 
 int Kants::edit() { 
 	

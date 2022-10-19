@@ -15,6 +15,36 @@ Book::Book()
 	set_genre((char*)"unknown");
 	set_year(1);
 	set_size(0);
+
+}
+
+Book::Book(Book& obj)
+{
+	printf("Book created\n");
+	set_type(book);
+
+	set_price(obj.get_price());
+	set_name(obj.get_name());
+	set_author(obj.get_author());
+	set_genre(obj.get_genre());
+	set_year(obj.get_year());
+	set_size(obj.get_size());
+
+}
+
+Book::Book(FILE* f)
+{
+	printf("Book created\n");
+	set_type(book);
+	char str[200];
+	int val = 0;
+	fgets(str, 200, f); trim(str); set_name(str);
+	fgets(str, 200, f); trim(str); set_author(str);
+	fscanf(f, "%d\n", &val); set_price(val);
+	fscanf(f, "%d\n", &val); set_year(val);
+	fscanf(f, "%d\n", &val); set_size(val);
+	fgets(str, 200, f); trim(str); set_genre(str);
+
 }
 
 Book::~Book()
@@ -73,6 +103,17 @@ void Book::print()
 	printf("\'%s\' by %s, price: %d\n", get_name(), get_author(), get_price());
 	printf("year published %d, %d pages, genre: %s\n", get_year(), get_size(), get_genre());
 	printf("\n");
+}
+
+void Book::file_print(FILE* f)
+{
+	fprintf(f, "%d\n", get_type());
+	fprintf(f, "%s\n", get_name());
+	fprintf(f, "%s\n", get_author());
+	fprintf(f, "%d\n", get_price());
+	fprintf(f, "%d\n", get_year());
+	fprintf(f, "%d\n", get_size());
+	fprintf(f, "%s\n", get_genre());
 }
 
 

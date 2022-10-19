@@ -55,8 +55,8 @@ int main()
 			printf("add %d\n", ADD);
 			printf("edit %d\n", EDIT);
 			printf("delete %d\n", DEL);
-			printf("SAVE %d\n", SAVE);
-			printf("READ %d\n", READ);
+			printf("save %d\n", SAVE);
+			printf("read %d\n", READ);
 		}
 			break;
 
@@ -80,6 +80,13 @@ int main()
 			cnt.delet();
 			break;
 
+		case SAVE:
+			cnt.save();
+			break;
+
+		case READ:
+			cnt.read();
+			break;
 		default:
 			printf("unknown\n");
 			break;

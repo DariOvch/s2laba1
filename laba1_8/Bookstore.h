@@ -17,6 +17,7 @@ public:
 	~BookstoreItem();
 
 	virtual void print() {};
+	virtual void file_print(FILE* f) {};
 	virtual int edit() { return 0; };
 
 	void set_type(types t);

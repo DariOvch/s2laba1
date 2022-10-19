@@ -37,3 +37,10 @@ void try_get(char* s)
 	}
 	_set_invalid_parameter_handler(oldHandler);
 }
+
+
+void trim(char* s)
+{
+	int len = strlen(s);
+	s[len - 2] = '\0';
+}

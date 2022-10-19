@@ -8,10 +8,13 @@ class Keeper
 	BookstoreItem** arr;
 	int size;
 
+
 public:
 	Keeper();
 	~Keeper();
 
+	void save();
+	void read();
 
 	void add();
 	int edit();
