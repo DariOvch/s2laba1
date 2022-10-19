@@ -44,5 +44,87 @@ void Manual::print(){
 
 }
 int Manual::edit() {
+	print();
+
+	int num = 0;
+	while (true)
+	{
+		printf("edit menu\n-1 break\n1 name\n2 author\n3 price\n4 year\n5 size\n6 school\n7 grade\nenter command\n");
+
+		scan("%d", &num);
+		switch (num)
+		{
+
+		case -1:
+			return 0;
+
+		case 1:
+		{
+			char s[200];
+			printf("new value\n");
+			try {
+				try_get(s);
+			}
+			catch (char* msg)
+			{
+				throw msg;
+			}
+			set_name(s);
+			break;
+		}
+		case 2:
+		{
+			char s[200]; printf("new value\n");
+			try { try_get(s); }
+			catch (char* msg) { throw msg; };
+			set_author(s);
+			break;
+		}
+		
+		case 3:
+		{
+			int in = -1; printf("new value\n");
+			while (in < 0) scan("%d", &in);
+			set_price(in);
+			break;
+		}
+		case 4:
+		{
+			int in = -1; printf("new value\n");
+			while (in < 0) scan("%d", &in);
+			set_year(in);
+			break;
+		}
+		case 5:
+		{
+			int in = -1; printf("new value\n");
+			while (in < 0) scan("%d", &in);
+			set_size(in);
+			break;
+		}
+		case 6:
+		{
+			char s[200]; printf("new value\n");
+			try { try_get(s); }
+			catch (char* msg) { throw msg; };
+			set_school(s);
+			break;
+		}
+		case 7:
+		{
+			int in = -1; printf("new value\n");
+			while (in < 0) scan("%d", &in);
+			set_grade(in);
+			break;
+		}
+		default:
+			printf("unknown\n");
+			break;
+
+		}
+
+	}
+
+
 	return 0;
 }
