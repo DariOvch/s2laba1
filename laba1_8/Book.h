@@ -12,7 +12,6 @@ class Book : public BookstoreItem
 
 public:
 	Book();
-	Book(Book& obj);
 	Book(FILE* f);
 	~Book();
 

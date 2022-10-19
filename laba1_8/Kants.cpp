@@ -3,10 +3,7 @@
 
 Kants::Kants(){ 
 	printf("Kants created\n");
-
 	set_type(kants);
-
-
 	set_price(0);
 	set_color((char*)"unknown");
 	set_tip((char*)"unknown");
@@ -17,13 +14,12 @@ Kants::Kants(FILE* f) {
 	printf("Kants created\n");
 
 	set_type(kants);
-
 	char str[200];
 	int val = 0;
-	fgets(str, 200, f); trim(str); set_tip(str);
-	fgets(str, 200, f); trim(str); set_color(str);
-	fgets(str, 200, f); trim(str); set_purpose(str);
-	fscanf(f, "%d\n", &val); set_price(val);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_tip(str);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_color(str);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_purpose(str);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; set_price(val);
 }
 
 

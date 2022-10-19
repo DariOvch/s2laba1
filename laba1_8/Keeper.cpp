@@ -10,6 +10,8 @@ Keeper::Keeper(){
 
 Keeper::~Keeper() {
 
+	for (int i = 0; i < size; i++)
+		delete arr[i];
 	printf("keeper deleted\n");
 }
 
@@ -166,7 +168,7 @@ void Keeper::add()
 	printf("%d to add book\n", book+1);
 	printf("%d to add manual\n", manual + 1);
 	printf("%d to add kants\n", kants + 1);
-	while (type < 1 || type > 4) scan("%d", &type);
+	while (type < 1 || type > 3) scan("%d", &type);
 
 	BookstoreItem* item = new BookstoreItem;
 	switch (type-1)
@@ -257,7 +259,7 @@ void Keeper::seeall()
 	{
 		for (int i = 0; i < size; i++)
 		{
-			printf("item %d:\n", i+1); arr[i]->print();
+			printf("item: %d (database type code %d)\n", i+1, (*this)[i]); arr[i]->print();
 		}
 	}
 }
@@ -283,4 +285,10 @@ void Keeper::seeinrange()
 			arr[i]->print();
 		}
 	}
+}
+
+
+types Keeper::operator[](int i)
+{
+	return arr[i]->get_type();
 }

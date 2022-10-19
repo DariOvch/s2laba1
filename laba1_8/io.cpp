@@ -38,6 +38,17 @@ void try_get(char* s)
 	_set_invalid_parameter_handler(oldHandler);
 }
 
+void try_getf(FILE* f, char* s)
+{
+	_CrtSetReportMode(_CRT_ASSERT, 0);
+	_invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(myInvalidParamHandler);
+	if (fgets(s, 200, f) == nullptr)
+	{
+		_set_invalid_parameter_handler(oldHandler);
+		throw (char*)"input error thrown, line too short for input\n";
+	}
+	_set_invalid_parameter_handler(oldHandler);
+}
 
 void trim(char* s)
 {

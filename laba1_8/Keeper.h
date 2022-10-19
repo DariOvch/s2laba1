@@ -22,4 +22,6 @@ public:
 
 	void seeall();
 	void seeinrange();
+
+	types operator[](int i);
 };

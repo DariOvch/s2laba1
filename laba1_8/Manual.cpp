@@ -25,13 +25,13 @@ Manual::Manual(FILE* f)
 	set_type(book);
 	char str[200];
 	int val = 0;
-	fgets(str, 200, f); trim(str); set_name(str);
-	fscanf(f, "%d\n", &val); set_grade(val);
-	fgets(str, 200, f); trim(str); set_author(str);
-	fscanf(f, "%d\n", &val); trim(str); set_price(val);
-	fscanf(f, "%d\n", &val); trim(str); set_year(val);
-	fscanf(f, "%d\n", &val); trim(str); set_size(val);
-	fgets(str, 200, f); set_school(str);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_name(str);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; set_grade(val);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_author(str);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; trim(str); set_price(val);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; trim(str); set_year(val);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; trim(str); set_size(val);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  set_school(str);
 
 }
 Manual::~Manual(){ 

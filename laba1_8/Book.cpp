@@ -18,19 +18,6 @@ Book::Book()
 
 }
 
-Book::Book(Book& obj)
-{
-	printf("Book created\n");
-	set_type(book);
-
-	set_price(obj.get_price());
-	set_name(obj.get_name());
-	set_author(obj.get_author());
-	set_genre(obj.get_genre());
-	set_year(obj.get_year());
-	set_size(obj.get_size());
-
-}
 
 Book::Book(FILE* f)
 {
@@ -38,12 +25,12 @@ Book::Book(FILE* f)
 	set_type(book);
 	char str[200];
 	int val = 0;
-	fgets(str, 200, f); trim(str); set_name(str);
-	fgets(str, 200, f); trim(str); set_author(str);
-	fscanf(f, "%d\n", &val); set_price(val);
-	fscanf(f, "%d\n", &val); set_year(val);
-	fscanf(f, "%d\n", &val); set_size(val);
-	fgets(str, 200, f); trim(str); set_genre(str);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_name(str);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_author(str);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; set_price(val);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; set_year(val);
+	if (fscanf(f, "%d\n", &val) != 1) throw (char*)"data corrupted"; set_size(val);
+	try { try_getf(f, str); } catch (char* m) { throw m; }  trim(str); set_genre(str);
 
 }
 
