@@ -73,7 +73,14 @@ int main()
 			break;
 
 		case EDIT:
+			try
+			{
 			cnt.edit();
+			}
+			catch (char* m)
+			{
+				printf("%s\n", m);
+			};
 			break;
 
 		case DEL:
@@ -81,11 +88,25 @@ int main()
 			break;
 
 		case SAVE:
-			cnt.save();
+			try
+			{
+				cnt.save();
+			}
+			catch (char* m)
+			{
+				printf("%s\n", m);
+			};
 			break;
 
 		case READ:
+			try
+			{
 			cnt.read();
+			}
+			catch (char* m)
+			{
+				printf("%s\n", m);
+			};
 			break;
 		default:
 			printf("unknown\n");

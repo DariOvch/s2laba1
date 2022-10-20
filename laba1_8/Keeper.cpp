@@ -55,7 +55,6 @@ void Keeper::save()
 
 
 	fclose(fp);
-
 }
 
 void Keeper::read()
@@ -197,7 +196,6 @@ void Keeper::add()
 	arr = new_arr;
 
 	size++;
-
 }
 
 int Keeper::edit()
@@ -210,7 +208,6 @@ int Keeper::edit()
 		scan("%d", &in);
 		switch (in)
 		{
-
 		case -1:
 			return 0;
 		
@@ -221,7 +218,10 @@ int Keeper::edit()
 			
 			while (num < 1 || num > size) 
 				scan("%d", &num);
-			arr[num-1]->edit();
+			try { arr[num - 1]->edit(); }
+			catch (char* m) {
+				throw m;
+			}
 		}
 
 		break;

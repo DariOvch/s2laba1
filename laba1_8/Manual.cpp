@@ -1,6 +1,5 @@
-#include "Manual.h"
-
 #pragma once
+#include "Manual.h"
 #include "Bookstore.h"
 #include "string.h"
 
